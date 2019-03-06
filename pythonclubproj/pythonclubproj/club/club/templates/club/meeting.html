@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<!--This is a comment-->
+<h2>Meeting</h2>
+<table class='table'>
+<tr>
+    <th>Name</th>
+    <th>Description</th>
+</tr>
+{% for item in meeting_list  %}
+    <tr>
+        <td><a href="{% url 'details' id=item.id %}">{{ item.meetingname }}</a></td>
+        <td>{{ item.meetingdescription }}</td>
+    </tr>
+
+
+
+{% endfor %}
+
+</table>
+
+{% endblock %}
