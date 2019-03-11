@@ -34,5 +34,14 @@ class EventTest(TestCase):
     def test_tablename(self):
         self.assertEqual(str(Event._meta.db_table), 'Event')
 
+class New_Product_Form_Test(TestCase):
 
+    
+    def test_meetingForm_is_valid(self):
+        form = MeetingForm(data={'meetingtitle': "Sweetest meeting on earth", 'meetingdate': "June 20 1979", 'meetingtime': "sweetest time ever", 'meetinglocation': "arguably the coolest place on earth", 'meetingagenda': "coming up with the coolest shit ever"})  })
+        self.assertTrue(form.is_valid())
+
+    def test_meetingForm_is_invalid(self):
+        form = MeetingForm(data={'meetingtitle': "Sweetest meeting on earth", 'meetingdate': "June 21 1979", 'meetingtime': "sweetest time ever", 'meetinglocation': "arguably the coolest place on earth", 'meetingagenda': "coming up with the coolest shit ever"})  })
+        self.assertFalse(form.is_valid())
 
